@@ -86,6 +86,13 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 - Copy mode uses vi-keybindings (already configured in existing config)
 - **room** plugin is loaded on-demand from GitHub releases (no manual installation needed)
 
+## Terminal Color Configuration
+
+Zellij has been configured to match tmux's color rendering:
+- **`styled_underlines false`**: Disabled to prevent color interference in applications (editors, syntax highlighting)
+- **`COLORTERM=truecolor`**: Explicitly enables 24-bit RGB color support for all panes
+- **Note**: Requires zellij restart to take effect. Exit all sessions and restart zellij.
+
 ## Installed Plugins
 - **room** (v1.2.0+): Fuzzy tab search and switch bound to `Ctrl-f`
   - Press `Ctrl-f` to open floating fuzzy finder
