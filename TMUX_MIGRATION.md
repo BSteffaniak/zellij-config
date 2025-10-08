@@ -1,5 +1,34 @@
 # Tmux to Zellij Migration Notes
 
+## Prefix Key Migration
+
+**Tmux Prefix:** `Ctrl-a`  
+**Zellij Equivalent:** `Ctrl-a` (tmux mode)
+
+Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to enter tmux mode, then press a command key.
+
+### Common Tmux Mode Commands (Ctrl-a + key):
+
+| Key | Action | Notes |
+|-----|--------|-------|
+| `c` | New tab | Opens in current directory |
+| `"` | Split horizontal | New pane below |
+| `%` | Split vertical | New pane right |
+| `,` | Rename tab | Enter rename mode |
+| `d` | Detach session | Return to shell |
+| `z` | Zoom pane | Toggle fullscreen |
+| `[` | Scroll/copy mode | Vi keybindings |
+| `h/j/k/l` | Navigate panes | Vim-style movement |
+| `n` | Next tab | Cycle forward |
+| `p` | Previous tab | Cycle backward |
+| `^` | Last tab | Toggle between two tabs |
+| `x` | Close pane | Kill focused pane |
+| `o` | Focus next pane | Cycle pane focus |
+| `space` | Next layout | Cycle pane layouts |
+| `Ctrl-a` | Send Ctrl-a | Passes through to shell |
+
+**Note:** Session creation (`Ctrl-a C`) uses session mode (`Ctrl-o w`) instead.
+
 ## Successfully Migrated Features
 
 ### Configuration
@@ -39,9 +68,9 @@
 - **tmux-jump**: No equivalent jump/search plugin
 
 ### Missing tmux Features
-- **Pane joining** (bind `b`/`m` in tmux): Not available in zellij
-- **Tab number toggle** (bind `space` in tmux): Not implemented
-- **Ctrl-a prefix**: Zellij uses modal keybindings instead (Ctrl-b for tmux mode)
+- **Pane joining** (`Ctrl-a b`/`Ctrl-a m` in tmux): Not available in zellij
+- **Tab number toggle** (`Ctrl-a space` custom feature): Not implemented
+- **Config reload** (`Ctrl-a r` in tmux): Not needed (zellij auto-reloads)
 - **Custom status bar formatting**: Limited compared to tmux (no time/battery display)
 
 ### Workarounds & Alternatives
