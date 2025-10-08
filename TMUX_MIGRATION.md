@@ -13,6 +13,7 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 |-----|--------|-------|
 | `c` | New tab | Opens in current directory |
 | `C` (Shift-c) | New session | Opens session-manager in create mode |
+| `$` | Rename session | Opens session-manager, then press `Ctrl-r` |
 | `"` | Split horizontal | New pane below |
 | `%` | Split vertical | New pane right |
 | `,` | Rename tab | Enter rename mode |
@@ -28,7 +29,9 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 | `space` | Next layout | Cycle pane layouts |
 | `Ctrl-a` | Send Ctrl-a | Passes through to shell |
 
-**Note:** `Ctrl-a C` (uppercase) opens session-manager in "new session" mode, where you type the session name and press Enter to create it.
+**Notes:** 
+- `Ctrl-a C` (uppercase) opens session-manager in "new session" mode, where you type the session name and press Enter to create it.
+- `Ctrl-a $` opens session-manager. Select a session, then press `Ctrl-r` to rename it. (Unlike tmux, it's a 2-step process)
 
 ## Successfully Migrated Features
 
