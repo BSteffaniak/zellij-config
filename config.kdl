@@ -309,12 +309,14 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
+    zellij-fish-history location="file:~/.config/zellij/plugins/zellij_fish_history.wasm"
 }
 
 // Plugins to load in the background when a new session starts
 // eg. "file:/path/to/my-plugin.wasm"
 // eg. "https://example.com/my-plugin.wasm"
 load_plugins {
+    zellij-fish-history
 }
 env {
     COLORTERM "truecolor"
