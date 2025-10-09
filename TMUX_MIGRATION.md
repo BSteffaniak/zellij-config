@@ -24,6 +24,7 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 | `n` | Next tab | Cycle forward |
 | `p` | Previous tab | Cycle backward |
 | `^` | Last tab | Toggle between two tabs |
+| `&` | Close tab | Kill current tab and all panes |
 | `x` | Close pane | Kill focused pane |
 | `o` | Focus next pane | Cycle pane focus |
 | `space` | Next layout | Cycle pane layouts |
