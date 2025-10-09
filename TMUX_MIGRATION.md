@@ -56,17 +56,20 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 
 #### Utilities
 - `Ctrl-q` → Clear screen
-- `Ctrl-f` → **room** plugin (fuzzy tab search and switch)
+- `Ctrl-f` → **session-manager** (browse/switch sessions, tabs, resurrect)
 - Vi-mode in scroll/search (already configured)
 
 ## Features NOT Migrated (Limitations)
 
 ### Partially Migrated tmux Plugins
-- **tmux-fzf** (`Ctrl-f`): Migrated to **room** plugin for tab switching
-  - ✅ Fuzzy search tabs by name
-  - ✅ Case-insensitive filtering (`ignore_case true`)
-  - ✅ Quick jump by number (disabled by default)
-  - ❌ No session/pane/command/keybinding/clipboard/process features (only tab switching)
+- **tmux-fzf** (`Ctrl-f`): Migrated to **session-manager** plugin
+  - ✅ Browse all sessions (running and exited/resurrectable)
+  - ✅ Switch between sessions
+  - ✅ Create new sessions
+  - ✅ Resurrect dead sessions
+  - ✅ Navigate tabs across all sessions
+  - ❌ No command/keybinding/clipboard/process features from tmux-fzf
+  - ❌ No fuzzy search (use arrow keys to navigate)
   
 ### Missing tmux Plugins
 - **tmux-battery**: No battery status in status bar
@@ -79,8 +82,7 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 - **Custom status bar formatting**: Limited compared to tmux (no time/battery display)
 
 ### Workarounds & Alternatives
-- **Session switching**: Use `Ctrl-o w` (session-manager plugin) instead of tmux session list
-- **Tab/Window search**: Use `Ctrl-f` (room plugin) for fuzzy tab switching
+- **Session/tab switching**: Use `Ctrl-f` or `Ctrl-o w` (session-manager plugin)
 - **Pane search**: Use modal keybinds (`Ctrl-p` for pane mode) or consider zellij-pane-picker plugin
 - **Battery/time status**: Would require custom zellij plugin development
 
@@ -117,9 +119,11 @@ Zellij has been configured to match tmux's color rendering:
 - **`COLORTERM=truecolor`**: Explicitly enables 24-bit RGB color support for all panes
 - **Note**: Requires zellij restart to take effect. Exit all sessions and restart zellij.
 
-## Installed Plugins
-- **room** (v1.2.0+): Fuzzy tab search and switch bound to `Ctrl-f`
-  - Press `Ctrl-f` to open floating fuzzy finder
-  - Type to filter tabs by name (case-insensitive)
-  - `Enter` to switch, `Esc` to cancel
-  - Tab numbers shown for quick reference
+## Key Shortcuts
+- **Session Manager**: `Ctrl-f` or `Ctrl-o w`
+  - Opens session-manager plugin in floating window
+  - Browse/switch/create/resurrect sessions
+  - Navigate tabs across all sessions
+  - Use arrow keys to navigate, `Enter` to select, `Esc` to cancel
+  - Press `TAB` to switch between "Attach to Session" and "Resurrect Session" views
+  - Press `Ctrl-r` on a session to rename it
