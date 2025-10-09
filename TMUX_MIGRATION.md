@@ -38,7 +38,7 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 ### Configuration
 - **Scrollback buffer**: Set to 10,000 lines (matching tmux history-limit)
 - **Session persistence**: Enabled via `session_serialization`, `serialize_pane_viewport`, and `serialization_interval` (300s/5min)
-- **Clipboard integration**: Using `xclip -selection clipboard` (matching tmux config)
+- **Clipboard integration**: Using OSC 52 (works over SSH and locally with any compatible terminal)
 - **Mouse support**: Enabled by default in zellij
 
 ### Keybindings
@@ -86,8 +86,28 @@ Zellij uses a "tmux mode" that mimics tmux prefix behavior. Press `Ctrl-a` to en
 ## Additional Notes
 - Zellij session serialization runs every 5 minutes (similar to tmux-continuum)
 - Home/End keys handled by terminal (tmux bindings not needed in zellij)
-- Copy mode uses vi-keybindings (already configured in existing config)
 - **room** plugin is loaded on-demand from GitHub releases (no manual installation needed)
+
+## Copy/Paste Workflow
+
+**Important:** Zellij does NOT have tmux-style vi-mode copy selection.
+
+### How to Copy Text:
+1. Press `Ctrl-a [` to enter scroll mode
+2. Hold `SHIFT` + drag mouse to select text
+3. Text automatically copied via OSC 52 to your clipboard (works over SSH!)
+4. Press `Esc` to exit scroll mode
+
+### Alternative - Edit Scrollback:
+1. Press `Ctrl-a [` to enter scroll mode
+2. Press `e` to open scrollback in your `$EDITOR` (nano/vim)
+3. Copy using editor commands
+4. Exit editor
+
+### Limitations:
+- **No keyboard-only selection** (no vi-mode `v`/`y` like tmux)
+- **Must use mouse + SHIFT** to select text
+- OSC 52 clipboard works over SSH and locally (Ghostty, WezTerm, Alacritty, Windows Terminal all supported)
 
 ## Terminal Color Configuration
 
