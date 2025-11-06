@@ -580,3 +580,6 @@ show_startup_tips false
 // can be useful for removing wrappers around commands
 // Note: be sure to escape backslashes and similar characters properly
 // post_command_discovery_hook "echo $RESURRECT_COMMAND | sed <your_regex_here>"
+
+// Wrap resurrected commands in fish shell so the shell remains when the command exits
+post_command_discovery_hook "echo \"fish -c \\\"$RESURRECT_COMMAND; exec fish\\\"\""
